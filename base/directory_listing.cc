@@ -13,13 +13,11 @@
 #include "base/time/time.h"
 #include "net/base/escape.h"
 #include "net/base/net_module.h"
-#include "net/grit/net_resources.h"
 
 namespace net {
 
 std::string GetDirectoryListingHeader(const base::string16& title) {
-  static const base::StringPiece header(
-      NetModule::GetResource(IDR_DIR_HEADER_HTML));
+  static const base::StringPiece header;
   // This can be null in unit tests.
   DLOG_IF(WARNING, header.empty())
       << "Missing resource: directory listing header";
